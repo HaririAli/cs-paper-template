@@ -16,6 +16,7 @@
 
 \input{preamble/variables}
 \input{\varStyle/config}
+
 \documentclass[\varKeyvals]{\varDocClass}
 
 \input{preamble/packages}
@@ -24,15 +25,7 @@
 \begin{document}
 	\title{\varTitle}
 	\cmdAuthors
-	\begin{abstract}
-		\varAbstract
-		\if\varStyleId1
-		%\cmdKeywords
-		\fi
-	\end{abstract}
-    \if\varStyleId2
-    \cmdKeywords
-    \fi
+	\cmdAbstract
 	
 	\makeatletter
 	\@for\varSection:={\varSections}\do{\input{sections/\varSection}}

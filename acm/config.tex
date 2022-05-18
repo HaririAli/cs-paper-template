@@ -1,16 +1,34 @@
 % DO NOT MODIFY THIS FILE
 
+\def\varStyleId{1}
+
+\ifx\varDocClass\undefined
+\def \varDocClass{acmart}
+\fi
+
+\ifx\varKeyvals\undefined
+\def \varKeyvals{sigconf}
+\fi
+
 \newcommand{\cmdAuthors}{
-	\input{preamble/authorsACM}
+	\input{acm/authors}
 }
 
-\newcommand{\cmdKeywords}{
+%\newcommand{\cmdKeywords}{
+%	\keywords{\varKeywords}
+%	\maketitle
+%}
+
+\newcommand{\cmdAbstract}{
+	\begin{abstract}
+		\varAbstract
+	\end{abstract}
 	\keywords{\varKeywords}
 	\maketitle
 }
 
 \newcommand{\cmdBibStyle}{
-	\bibliographystyle{ACM-Reference-Format}
+	\bibliographystyle{bibliography/ACM-Reference-Format}
 }
 
 %% \BibTeX command to typeset BibTeX logo in the docs

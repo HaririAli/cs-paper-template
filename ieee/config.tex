@@ -1,18 +1,37 @@
 % DO NOT MODIFY THIS FILE
 
+\def\varStyleId{2}
+
+\ifx\varDocClass\undefined
+\def \varDocClass{IEEEtran}
+\fi
+
+\ifx\varKeyvals\undefined
+\def \varKeyvals{conference}
+\fi
+
 \newcommand{\cmdAuthors}{
-	\input{preamble/authorsIEEE}
+	\input{ieee/authors}
 	\maketitle
 }
 
-\newcommand{\cmdKeywords}{
-	\begin{IEEEkeywords}
-		\varKeywords
-	\end{IEEEkeywords}
+%\newcommand{\cmdKeywords}{
+%	\begin{IEEEkeywords}
+%		\varKeywords
+%	\end{IEEEkeywords}
+%}
+
+\newcommand{\cmdAbstract}{
+	\begin{abstract}
+		\varAbstract
+	\end{abstract}
+    \begin{IEEEkeywords}
+    	\varKeywords
+    \end{IEEEkeywords}
 }
 
 \newcommand{\cmdBibStyle}{
-	\bibliographystyle{IEEEtran}
+	\bibliographystyle{bibliography/IEEEtran}
 }
 
-\IEEEoverridecommandlockouts
+%\IEEEoverridecommandlockouts
