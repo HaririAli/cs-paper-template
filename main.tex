@@ -1,0 +1,43 @@
+% DO NOT MODIFY THIS FILE
+
+% The only files to be modified are:
+%   acm/authors.tex
+%   ieee/authors.tex
+%   llncs/authors.tex
+%   preamble/variables.tex
+%   preamble/config.tex
+%   preamble/packages.tex
+%   bibliography/references.tex
+%   sections/*.tex
+%
+% Add your text in tex files in the 'sections' directory.
+% Update variables.tex to determine which files to include
+%  from 'sections' directory
+
+\input{preamble/variables}
+\input{\varStyle/config}
+\documentclass[\varKeyvals]{\varDocClass}
+
+\input{preamble/packages}
+\input{preamble/config}
+
+\begin{document}
+	\title{\varTitle}
+	\cmdAuthors
+	\begin{abstract}
+		\varAbstract
+		\if\varStyleId1
+		%\cmdKeywords
+		\fi
+	\end{abstract}
+    \if\varStyleId2
+    \cmdKeywords
+    \fi
+	
+	\makeatletter
+	\@for\varSection:={\varSections}\do{\input{sections/\varSection}}
+	\makeatother
+	
+	\cmdBibStyle{}
+	\bibliography{bibliography/references.bib}
+\end{document}
