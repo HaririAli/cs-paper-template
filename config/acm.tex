@@ -1,7 +1,5 @@
 % DO NOT MODIFY THIS FILE
 
-\def\varStyleId{1}
-
 \ifx\varDocClass\undefined
 \def \varDocClass{acmart}
 \fi
@@ -10,16 +8,41 @@
 \def \varKeyvals{sigconf}
 \fi
 
-\newcommand{\cmdAuthors}{
-	\input{acm/authors}
+\def\insertAuthors{}
+
+\makeatletter
+\newcommand{\addAuthor}[2]{
+	\g@addto@macro\insertAuthors{\author{#1}}
+	\@for\varRef:={#2}\do{
+		\expandafter\g@addto@macro\expandafter\insertAuthors\expandafter{\expandafter\getInst\expandafter{\varRef}}
+	}
+	\g@addto@macro\insertAuthors{ }
 }
 
-%\newcommand{\cmdKeywords}{
-%	\keywords{\varKeywords}
-%	\maketitle
-%}
+\newcommand{\addInst}[2]{\expandafter\gdef\csname my@inst@#1\endcsname{#2}}
+\newcommand{\getInst}[1]{\csname my@inst@#1\endcsname}
 
-\newcommand{\cmdAbstract}{
+\newcounter{instId}
+\newcommand{\addInstitution}[4]{
+	\stepcounter{instId}
+	\addInst{\theinstId}{
+		\affiliation{
+			\institution{#1}
+			\city{#2}
+			\country{#3}
+		}
+		\email{#4}
+	}
+}
+\makeatother
+
+\newcommand{\addAbstract}[1]{\def\varAbstract{#1}}
+\newcommand{\addTitle}[1]{\def\varTitle{#1}}
+\newcommand{\addKeywords}[1]{\def\varKeywords{#1}}
+
+\newcommand{\insertTopmatter}{
+	\title{\varTitle}
+	\insertAuthors
 	\begin{abstract}
 		\varAbstract
 	\end{abstract}
@@ -27,9 +50,7 @@
 	\maketitle
 }
 
-\newcommand{\cmdBibStyle}{
-	\bibliographystyle{bibliography/ACM-Reference-Format}
-}
+\newcommand{\setBibStyle}{\bibliographystyle{bibliography/ACM-Reference-Format}}
 
 %% \BibTeX command to typeset BibTeX logo in the docs
 \AtBeginDocument{%
