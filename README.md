@@ -38,7 +38,7 @@ Example:
 Note that you only need to insert/modify the arguments of the above commands.
 
 
-Use [*user/packages.tex*](user/packages.tex) and [*user/preamble.tex*](user/preamble.tex) to add packages and user-defined preabmle code (e.g., listings, acronyms) respectively.
+Use [*packages.tex*](user/packages.tex) and [*preamble.tex*](user/preamble.tex) to add packages and user-defined preabmle code (e.g., listings, acronyms) respectively.
 
 
 Finally, use [*references.bib*](bibliography/references.bib) for your bibliography.
