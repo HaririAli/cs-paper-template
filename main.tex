@@ -1,36 +1,33 @@
-% DO NOT MODIFY THIS FILE
+%=============================%
+%   DO NOT MODIFY THIS FILE   %
+%=============================%
 
-% The only files to be modified are:
-%   acm/authors.tex
-%   ieee/authors.tex
-%   llncs/authors.tex
-%   preamble/variables.tex
-%   preamble/config.tex
-%   preamble/packages.tex
-%   bibliography/references.tex
-%   sections/*.tex
-%
-% Add your text in tex files in the 'sections' directory.
-% Update variables.tex to determine which files to include
-%  from 'sections' directory
+% % The only files to be modified are:
+% %   user/*.tex
+% %   sections/*.tex
+% %   bibliography/references.bib
 
-\input{preamble/variables}
-\input{\varStyle/config}
+% % Add your text in tex files in the 'sections' directory.
+% % Update settings.tex to determine which files to include from 'sections' directory
+
+\input{user/settings}
+\input{config/\varStyle}
+\input{user/topmatter}
 
 \documentclass[\varKeyvals]{\varDocClass}
 
-\input{preamble/packages}
-\input{preamble/config}
+\input{user/packages}
+\input{user/preamble}
 
 \begin{document}
-	\title{\varTitle}
-	\cmdAuthors
-	\cmdAbstract
+	\insertTopmatter
 	
 	\makeatletter
 	\@for\varSection:={\varSections}\do{\input{sections/\varSection}}
 	\makeatother
 	
-	\cmdBibStyle{}
+	\setBibStyle
 	\bibliography{bibliography/references.bib}
 \end{document}
+
+% % Template available on GitHub: https://github.com/HaririAli/cs-paper-template
