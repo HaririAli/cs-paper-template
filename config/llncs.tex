@@ -1,4 +1,6 @@
-% DO NOT MODIFY THIS FILE
+%=============================%
+%   DO NOT MODIFY THIS FILE   %
+%=============================%
 
 \ifx\varDocClass\undefined
 \def \varDocClass{llncs}
@@ -42,10 +44,15 @@
 }
 \makeatother
 
+\def\insertRunningHeads{}
+\newcommand{\setRunningHeads}[1]{\def\insertRunningHeads{\authorrunning{#1}}}
+
+
 \newcommand{\insertTopmatter}{
 	\title{\varTitle}
 	\author{\varAuthors}
-	\institute{\varInstitutions} 
+	\institute{\varInstitutions}
+	\insertRunningHeads
 	\maketitle
 	\begin{abstract}
 		\varAbstract

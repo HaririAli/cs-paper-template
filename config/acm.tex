@@ -1,4 +1,6 @@
-% DO NOT MODIFY THIS FILE
+%=============================%
+%   DO NOT MODIFY THIS FILE   %
+%=============================%
 
 \ifx\varDocClass\undefined
 \def \varDocClass{acmart}
@@ -39,10 +41,15 @@
 \newcommand{\addAbstract}[1]{\def\varAbstract{#1}}
 \newcommand{\addTitle}[1]{\def\varTitle{#1}}
 \newcommand{\addKeywords}[1]{\def\varKeywords{#1}}
+\def\insertRunningHeads{}
+\newcommand{\setRunningHeads}[1]{
+	\def\insertRunningHeads{\renewcommand{\shortauthors}{#1}}
+}
 
 \newcommand{\insertTopmatter}{
 	\title{\varTitle}
 	\insertAuthors
+	\insertRunningHeads
 	\begin{abstract}
 		\varAbstract
 	\end{abstract}
