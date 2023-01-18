@@ -7,7 +7,7 @@
 ### Template Structure
 * [main.tex](main.tex): the root document of the template. This file *must not* be modified.
 * [bibliography](bibliography/): contains bibliography styles and references file. Only the references file shall be modified.
-* [config](config/]: contains style-specific code and configurations. The contents of this directory *must not* be modified.
+* [config](config/): contains style-specific code and configurations. The contents of this directory *must not* be modified.
 * [sections](sections/): directory to add paper sections and text.
 * [user](user/): contains user-defined variables and configurations such as paper title, abstract, athors, and packages.
 ---
